@@ -1,4 +1,4 @@
-package fftsg
+package fftsgh
 
 import (
 	"math"
@@ -12,13 +12,9 @@ func BenchmarkRdft2(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -29,13 +25,9 @@ func BenchmarkRdft4(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -46,13 +38,9 @@ func BenchmarkRdft8(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -63,13 +51,9 @@ func BenchmarkRdft16(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -80,13 +64,9 @@ func BenchmarkRdft32(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -97,13 +77,9 @@ func BenchmarkRdft64(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -113,13 +89,9 @@ func BenchmarkRdft128(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -129,13 +101,9 @@ func BenchmarkRdft256(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -145,13 +113,9 @@ func BenchmarkRdft512(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -162,13 +126,9 @@ func BenchmarkRdft1024(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
 }
@@ -179,15 +139,41 @@ func BenchmarkRdft2048(b *testing.B) {
 	a[0] = 1
 	orig := make([]float64, n)
 	copy(orig, a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
 
 	for i := 0; i < b.N; i++ {
-		Rdft(n, 1, a, ip, w)
+		Rdft(n, 1, a)
 		copy(a, orig)
 	}
+}
+
+func BenchmarkNumpyRfft512(b *testing.B) {
+	n := 512
+	a := make([]float64, n)
+	a[0] = 1
+
+	for i := 0; i < b.N; i++ {
+		NumpyRfft(a)
+	}
+}
+
+func BenchmarkNumpyRfft1024(b *testing.B) {
+	n := 1024
+	a := make([]float64, n)
+	a[0] = 1
+
+	for i := 0; i < b.N; i++ {
+		NumpyRfft(a)
+	}
+}
+
+func BenchmarkScipyDctNormOrtho32(b *testing.B) {
+	signal := make([]float64, 32)
+	signal[0] = 1
+
+	for i := 0; i < b.N; i++ {
+		ScipyDct(signal, DctNormOrtho)
+	}
+
 }
 
 func TestRoundTrip(t *testing.T) {
@@ -199,12 +185,8 @@ func TestRoundTrip(t *testing.T) {
 		}
 		orig := make([]float64, len(a))
 		copy(orig, a)
-		ipLen := int(2 + math.Sqrt(float64(n/2)))
-		ip := make([]int, ipLen)
-		wLen := n / 2
-		w := make([]float64, wLen)
-		Rdft(n, 1, a, ip, w)
-		Rdft(n, -1, a, ip, w)
+		Rdft(n, 1, a)
+		Rdft(n, -1, a)
 		sum := 0.0
 		for i := 0; i < n; i++ {
 			a[i] *= 2.0 / float64(n)
@@ -212,7 +194,7 @@ func TestRoundTrip(t *testing.T) {
 		}
 		mse := math.Sqrt(sum / float64(n))
 		if mse > 1e-15 {
-			t.Error("MSE too large for size", n)
+			t.Error("MSE too large for size", mse, n)
 		}
 	}
 }
@@ -223,13 +205,23 @@ func TestRdft(t *testing.T) {
 	// Verification vector
 	v := []float64{1, 1, 1, 0, 1, 0, 1, 0}
 	n := len(a)
-	ipLen := int(2 + math.Sqrt(float64(n/2)))
-	ip := make([]int, ipLen)
-	wLen := n / 2
-	w := make([]float64, wLen)
-	Rdft(n, 1, a, ip, w)
+	Rdft(n, 1, a)
 	for i := 0; i < n/2; i += 2 {
 		if a[i] != v[i] {
+			t.Error("Result does not equal test vector")
+		}
+	}
+}
+
+func TestNumpyRfft(t *testing.T) {
+	// Test vector
+	sig := []float64{1, 0, 0, 0, 0, 0, 0, 0}
+	// Verification vector
+	// NumPy: numpy.fft.rfft([1, 0, 0, 0, 0, 0, 0, 0])
+	ver := []complex128{complex(1, 0), complex(1, 0), complex(1, 0), complex(1, 0), complex(1, 0)}
+	fft := NumpyRfft(sig)
+	for i := range ver {
+		if ver[i] != fft[i] {
 			t.Error("Result does not equal test vector")
 		}
 	}

@@ -48,16 +48,10 @@ func Blackman(n int) ([]float64, error) {
 		return nil, errors.New("invalid window size")
 	}
 	w := make([]float64, n)
-	if n == 1 {
-		w[0] = 1
-	} else {
-		k := 2 * math.Pi / float64(n-1)
-
-		for i := range w {
-			w[i] = 0.42 -
-				0.50*math.Cos(k*float64(i)) +
-				0.08*math.Cos(2*k*float64(i))
-		}
+	for i := range w {
+		w[i] = 0.42 -
+			0.50*math.Cos((2*math.Pi*float64(i))/float64(n-1)) +
+			0.08*math.Cos((4*math.Pi*float64(i))/float64(n-1))
 	}
 	return w, nil
 }

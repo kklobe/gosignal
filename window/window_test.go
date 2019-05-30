@@ -6,7 +6,6 @@ import (
 )
 
 func TestHann(t *testing.T) {
-	n := 16
 	// SciPy: numpy.set_printoptions(precision=15); scipy.signal.hann(16)
 	v := []float64{
 		0., 0.0432272711787, 0.165434696820571,
@@ -16,6 +15,8 @@ func TestHann(t *testing.T) {
 		0.345491502812526, 0.165434696820571, 0.0432272711787,
 		0.,
 	}
+	n := len(v)
+
 	w, _ := Hann(n)
 
 	sum := 0.0
@@ -30,7 +31,6 @@ func TestHann(t *testing.T) {
 }
 
 func TestHamming(t *testing.T) {
-	n := 16
 	// SciPy: numpy.set_printoptions(precision=15); scipy.signal.hamming(16)
 	v := []float64{
 		0.08, 0.119769089484404, 0.232199921074925,
@@ -40,6 +40,7 @@ func TestHamming(t *testing.T) {
 		0.397852182587524, 0.232199921074925, 0.119769089484404,
 		0.08,
 	}
+	n := len(v)
 	w, _ := Hamming(n)
 	sum := 0.0
 	for i := 0; i < n; i++ {
@@ -53,7 +54,6 @@ func TestHamming(t *testing.T) {
 }
 
 func TestBlackman(t *testing.T) {
-	n := 16
 	// SciPy: numpy.set_printoptions(precision=15); scipy.signal.blackman(16)
 	v := []float64{
 		-1.387778780781446e-17, 1.675771968740822e-02,
@@ -65,6 +65,7 @@ func TestBlackman(t *testing.T) {
 		2.007701432625306e-01, 7.707241975915853e-02,
 		1.675771968740816e-02, -1.387778780781446e-17,
 	}
+	n := len(v)
 	w, _ := Blackman(n)
 	sum := 0.0
 	for i := 0; i < n; i++ {
@@ -78,7 +79,6 @@ func TestBlackman(t *testing.T) {
 }
 
 func TestBlackmanHarris(t *testing.T) {
-	n := 16
 	// SciPy: numpy.set_printoptions(precision=15); scipy.signal.blackmanharris(16)
 	v := []float64{
 		6.000000000000102e-05, 3.600342059774550e-03,
@@ -90,6 +90,7 @@ func TestBlackmanHarris(t *testing.T) {
 		1.030114893456638e-01, 2.670175342487850e-02,
 		3.600342059774529e-03, 6.000000000000102e-05,
 	}
+	n := len(v)
 	w, _ := BlackmanHarris(n)
 	sum := 0.0
 	for i := 0; i < n; i++ {
@@ -103,7 +104,6 @@ func TestBlackmanHarris(t *testing.T) {
 }
 
 func TestBartlett(t *testing.T) {
-	n := 16
 	// SciPy: numpy.set_printoptions(precision=15); scipy.signal.bartlett(16)
 	v := []float64{
 		0., 0.133333333333333, 0.266666666666667,
@@ -113,6 +113,7 @@ func TestBartlett(t *testing.T) {
 		0.4, 0.266666666666667, 0.133333333333333,
 		0.,
 	}
+	n := len(v)
 	w, _ := Bartlett(n)
 	sum := 0.0
 	for i := 0; i < n; i++ {
