@@ -1,6 +1,6 @@
 # fftsgh
 
-fftsgh provides a pure Go port of [Ooura FFT's](http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html) fftsg_h_.c. The API is almost identical to the Ooura C version for ease of porting existing code that consumes it, which was the primary motivation. 
+fftsgh provides a pure Go port of [Ooura FFT's](http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html) fftsg_h.c. The API is almost identical to the Ooura C version for ease of porting existing code that consumes it, which was the primary motivation. 
 
 Some reasons:
 
