@@ -94,15 +94,3 @@ func Bartlett(n int) ([]float64, error) {
 	}
 	return w, nil
 }
-
-// Dirichlet returns an n-sized Dirichlet (rectangluar) window
-func Dirichlet(n int) ([]float64, error) {
-	if n < 1 {
-		return nil, errors.New("invalid window size")
-	}
-	w := make([]float64, n)
-	for i := range w {
-		w[i] = 1
-	}
-	return w, nil
-}
